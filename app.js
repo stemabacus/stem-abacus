@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const inquirySummary = document.getElementById('div-inquiry-summary');
   const closeInquirySuccessBtn = document.getElementById('btn-close-inquiry-success');
   const submitInquiryBtn = document.getElementById('btn-submit-inquiry');
+  const sendWhatsappManualBtn = document.getElementById('btn-send-whatsapp-manual');
 
   inquiryForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -206,6 +207,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactPhone = document.getElementById('input-contact-phone').value;
     const interestCourse = mainInterestSelect.options[mainInterestSelect.selectedIndex].text;
     const classMode = document.getElementById('select-class-mode').value;
+    const customNotes = document.getElementById('textarea-inquiry-notes').value || 'None';
+
+    // Construct WhatsApp message content
+    const msg = `Hello STEM Abacus Academy! I would like to register my child.
+
+*Student Details:*
+• Name: ${childName}
+• Age: ${childAge} Years
+• Program: ${interestCourse}
+• Preferred Mode: ${classMode.charAt(0).toUpperCase() + classMode.slice(1)}
+
+*Parent Details:*
+• Name: ${parentName}
+• Contact Phone: ${contactPhone}
+
+*Notes/Requirements:*
+${customNotes}`;
+
+    const encodedMsg = encodeURIComponent(msg);
+    const whatsappUrl = `https://wa.me/919361409566?text=${encodedMsg}`;
 
     // Simulate Network API call
     setTimeout(() => {
@@ -217,8 +238,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><span class="lbl">Batch Mode:</span> <span class="val" style="text-transform: capitalize;">${classMode}</span></p>
       `;
 
+      // Set href for manual send button
+      if (sendWhatsappManualBtn) {
+        sendWhatsappManualBtn.href = whatsappUrl;
+      }
+
       // Animate success screen overlay
       inquirySuccessOverlay.classList.add('active');
+
+      // Attempt to open WhatsApp automatically in a new tab
+      window.open(whatsappUrl, '_blank');
     }, 1200);
   });
 

@@ -497,10 +497,13 @@
             <div class="inquiry-success-overlay" id="div-inquiry-success">
               <div class="inquiry-success-content text-center">
                 <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
-                <h3>Application Received!</h3>
-                <p>Thank you for submitting the inquiry. Our center trainer will contact you shortly on WhatsApp to schedule your child's free trial class slot.</p>
+                <h3>Sending to WhatsApp...</h3>
+                <p>We are opening WhatsApp to send your application. If it did not open automatically, please click the button below to send it to the academy.</p>
                 <div class="summary-box" id="div-inquiry-summary"></div>
-                <button type="button" class="btn btn-primary" id="btn-close-inquiry-success">Done</button>
+                <div class="success-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                  <a href="" id="btn-send-whatsapp-manual" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Send Message</a>
+                  <button type="button" class="btn btn-secondary" id="btn-close-inquiry-success">Close</button>
+                </div>
               </div>
             </div>
 
