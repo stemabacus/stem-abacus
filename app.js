@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Calculation Logic
+    recommendation.fees = 'Discuss on inquiry / Assessment';
     if (course === 'abacus') {
-      recommendation.fees = '₹1,500 / Month';
       if (age <= 5) {
         recommendation.title = 'Junior Abacus (Smart Start)';
         recommendation.level = 'Level 1 (Basic Beads & Number Recognition)';
@@ -116,17 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendation.level = 'Intro Level (Mental addition shortcuts & finger counting)';
         recommendation.duration = '2 Months';
         recommendation.frequency = '2 classes/week (1 hour each)';
-        recommendation.fees = '₹1,600 / Month';
       } else {
         recommendation.title = 'Vedic & Senior Speed Maths';
         recommendation.level = 'Level 1 (Vedic Sutras for multiplication & rapid squares)';
         recommendation.duration = '3 Months (Total 3 Levels)';
         recommendation.frequency = '1 class/week (2 hours)';
-        recommendation.fees = '₹1,800 / Month';
       }
     } 
     else if (course === 'phonics') {
-      recommendation.fees = '₹1,600 / Month';
       if (age <= 5) {
         recommendation.title = 'Phonics Junior (Foundation)';
         recommendation.level = 'Level 1 (44 Letter sounds, short vowels & initial blending)';
@@ -142,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendation.level = 'Spelling patterns, prefix/suffix and grammar syntax';
         recommendation.duration = '3 Months';
         recommendation.frequency = '1 class/week (2 hours)';
-        recommendation.fees = '₹1,800 / Month';
       }
     } 
     else if (course === 'handwriting') {
@@ -151,13 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendation.level = 'Foundation level (Pre-writing strokes, pencil grip alignment)';
         recommendation.duration = '2 Months';
         recommendation.frequency = '2 classes/week (1 hour each)';
-        recommendation.fees = '₹1,200 (Total 2-Month Course)';
       } else {
         recommendation.title = 'Print & Cursive Legibility';
         recommendation.level = 'Print legibility or Cursive flow alignment';
         recommendation.duration = '3 Months';
         recommendation.frequency = '2 classes/week (1 hour each)';
-        recommendation.fees = '₹1,500 (Total 3-Month Course)';
       }
     }
 
