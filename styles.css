@@ -1780,3 +1780,303 @@ section {
   display: flex;
   justify-content: center;
 }
+
+
+/* 3D Perspective wrapper for sections */
+.perspective-3d {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+/* 3D Tilt Card Effect */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  transform: perspective(1000px) rotateX(3deg) rotateY(3deg);
+}
+
+.tilt-card .tilt-content {
+  transform: translateZ(20px);
+  transition: transform 0.3s ease;
+}
+
+.tilt-card:hover .tilt-content {
+  transform: translateZ(40px);
+}
+
+/* Parallax depth layers */
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-deep {
+  transform: translateZ(-50px) scale(1.1);
+}
+
+.parallax-shallow {
+  transform: translateZ(20px);
+}
+
+/* Hero section 3D depth */
+.hero-content-3d {
+  transform-style: preserve-3d;
+}
+
+.hero-content-3d .hero-title {
+  transform: translateZ(30px);
+}
+
+.hero-content-3d .hero-subtitle {
+  transform: translateZ(15px);
+}
+
+.hero-content-3d .hero-buttons {
+  transform: translateZ(20px);
+}
+
+/* 3D floating shapes for decorative elements */
+.float-shape {
+  animation: float3d 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes float3d {
+  0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+  25% { transform: translateY(-15px) rotateX(5deg) rotateY(3deg); }
+  50% { transform: translateY(-25px) rotateX(10deg) rotateY(-3deg); }
+  75% { transform: translateY(-10px) rotateX(-5deg) rotateY(6deg); }
+}
+
+/* Scroll-triggered 3D card reveal */
+.card-3d-reveal {
+  opacity: 0;
+  transform: perspective(800px) rotateY(15deg) translateZ(-30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-3d-reveal.revealed-3d {
+  opacity: 1;
+  transform: perspective(800px) rotateY(0deg) translateZ(0);
+}
+
+/* 3D step timeline */
+.step-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.step-3d:hover {
+  transform: perspective(800px) translateZ(15px) rotateX(2deg);
+}
+
+/* Glow effect for 3D elements */
+.glow-3d {
+  position: relative;
+}
+
+.glow-3d::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(30,60,114,0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%) translateZ(-10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Scene container fix - ensure sections sit above canvas */
+.site-header {
+  z-index: 1000;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth reveal 3D animation for course cards */
+.course-card {
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-color 0.3s ease,
+              box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.course-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+  box-shadow: 0 25px 45px rgba(30, 60, 114, 0.15), 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.course-card .course-icon {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.course-card:hover .course-icon {
+  transform: translateZ(30px) scale(1.1);
+}
+
+.course-card .course-body {
+  transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-body {
+  transform: translateZ(15px);
+}
+
+/* USP card 3D hover */
+.usp-card {
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-style: preserve-3d;
+}
+
+.usp-card:hover {
+  transform: perspective(800px) rotateX(2deg) translateZ(15px);
+}
+
+.usp-card:hover .usp-icon {
+  transform: translateZ(25px) scale(1.15) rotate(5deg);
+}
+
+/* Contact card 3D effect */
+.contact-card-item {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.contact-card-item:hover {
+  transform: perspective(800px) translateZ(10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero image 3D depth effect */
+.hero-image-wrapper {
+  transform-style: preserve-3d;
+}
+
+.hero-image {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.hero-image-border {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+/* Welcome kit modal 3D entrance */
+.modal-card {
+  transform-style: preserve-3d;
+}
+
+/* Staggered fade-in for elements */
+.stagger-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stagger-fade-in.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   3D Visual Effects - Three.js Canvas, Perspective & Tilt Styles
+   ========================================================================== */
+
+.three-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Ensure sections sit above 3D canvas */
+section, .hero, .site-header {
+  position: relative;
+  z-index: 1;
+}
+.site-header { z-index: 1000; }
+
+/* Course cards 3D hover */
+.course-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease;
+}
+
+.course-card:hover .course-icon {
+  transform: translateZ(30px) scale(1.1);
+}
+
+.course-card:hover .course-body {
+  transform: translateZ(15px);
+}
+
+.course-icon {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.course-body {
+  transition: transform 0.4s ease;
+}
+
+/* USP card 3D hover */
+.usp-card {
+  transform-style: preserve-3d;
+}
+
+.usp-card:hover .usp-icon {
+  transform: translateZ(25px) scale(1.15) rotate(5deg);
+}
+
+.usp-icon {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Contact card 3D hover */
+.contact-card-item {
+  transform-style: preserve-3d;
+}
+
+.contact-card-item:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero image 3D depth effect */
+.hero-image-wrapper {
+  transform-style: preserve-3d;
+}
+
+.hero-image {
+  will-change: transform;
+}
+
+.hero-image-border {
+  will-change: transform;
+}
+
+/* Welcome kit modal 3D entrance */
+.modal-card {
+  transform-style: preserve-3d;
+}
